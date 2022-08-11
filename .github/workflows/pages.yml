@@ -38,10 +38,10 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      - name: ls
+      - name: tree
         run: |
-          ls
           tree
+          cat _site/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
