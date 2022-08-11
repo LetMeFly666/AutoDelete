@@ -27,6 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 每次checkout都会自动进入到/home/runner/work/AutoDelete/AutoDelete，并且把/home/runner/work/AutoDelete的所有东西重写覆盖掉！！！
       - name: Checkout master
         uses: actions/checkout@v3
         with:
@@ -53,9 +54,9 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-      - name: Debug log
-        run: |
-          tree ..
+      # - name: Debug log
+      #   run: |
+      #     tree ..
       # - name: 'Set up Python'
       #   uses: actions/setup-python@v1
       #   with:
