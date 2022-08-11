@@ -33,7 +33,7 @@ jobs:
           ref: 'website'
       - name: Child dir
         run: |
-          md websiteDir
+          mkdir websiteDir
           cd websiteDir
       - name: Setup pages
         uses: actions/configure-pages@v1
