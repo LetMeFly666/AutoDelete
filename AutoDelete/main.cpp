@@ -6,13 +6,18 @@
  */
 #include "AutoDelete.h"
 
-int f(string s = "55", int t = 9, char c = '0') {
-    cout << s << endl;
-    cout << t << endl;
-    cout << c << endl;
+void f(string s = "55", int t = 9, char c = '0') {
+    cout << s << " ";
+    cout << t << " ";
+    cout << c << " ";
+    puts("");
 }
 
 int main() {
+    f();
+    f("))");
+    f("--", 0);
+    f("[", 6678, '=');
     AutoDelete autoDelete();
     return 0;
 }
