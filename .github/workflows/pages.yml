@@ -51,6 +51,9 @@ jobs:
         run: |
           tree
           cat _site/index.html
+      - name: Chmod
+        run: |
+          chmod 666 _site/index.html
       - name: Change HTMLs
         run: |
           python ChangeHtml.py
