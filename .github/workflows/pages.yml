@@ -32,6 +32,7 @@ jobs:
           mkdir websiteDir
           cd websiteDir
           tree ..
+          pwd -P
       - name: Checkout
         uses: actions/checkout@v3
         with:
