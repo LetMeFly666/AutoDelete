@@ -2,7 +2,7 @@
 Author: LetMeFly
 Date: 2022-08-11 12:13:08
 LastEditors: LetMeFly
-LastEditTime: 2022-08-11 16:40:02
+LastEditTime: 2022-08-11 16:52:03
 '''
 from bs4 import BeautifulSoup
 
@@ -24,7 +24,7 @@ def change1html(path):
     })
     head.append(linkTag)
     print(soup)
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path + "lll", "w", encoding="utf-8") as f:
         print(f.writable())
         f.write(soup.prettify("utf-8"))
 
