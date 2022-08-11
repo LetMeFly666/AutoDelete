@@ -2,12 +2,14 @@
 Author: LetMeFly
 Date: 2022-08-11 12:13:08
 LastEditors: LetMeFly
-LastEditTime: 2022-08-11 12:36:49
+LastEditTime: 2022-08-11 16:37:35
 '''
 from bs4 import BeautifulSoup
 
 def change1html(path):
-    soup = BeautifulSoup(open(path, "r", encoding="utf-8").read(), "lxml")
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+    soup = BeautifulSoup(content, "lxml")
     head = soup.find("head")
     scriptTag = soup.new_tag(name="script")
     scriptTag.string = "window._LINKS_COMMONJS_NOTCHANGEICO = true;"
@@ -21,7 +23,9 @@ def change1html(path):
     })
     head.append(linkTag)
     print(soup)
-    open(path, "w", encoding="utf-8").write(soup.prettify("utf-8"))
+    with open(path, "w", encoding="utf-8") as f:
+        print(f.writable())
+        f.write(soup.prettify("utf-8"))
 
 
 change1html("_site/index.html")
