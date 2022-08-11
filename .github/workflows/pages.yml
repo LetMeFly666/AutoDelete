@@ -27,33 +27,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Child dir
-        run: |
-          mkdir websiteDir
-          cd websiteDir
-          tree ..
-          pwd -P
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: 'website'
-      - name: Change the readme -step1
-        run: |
-          tree ../..
-          pwd -P
-          cd ../..
-          mkdir masterDir
-          cd masterDir
-          # tree ../..
       - name: Checkout master
         uses: actions/checkout@v3
         with:
           ref: 'master'
-      - name: Change the readme -step2
+      - name: Backup master's README.md
         run: |
-          cd ../../websiteDir
-          rm -rf README.md 
-          cp ../../masterDir/AutoDelete/README.md .
+          pwd -P
+          cp README.md ../..
+      - name: Checkout website
+        uses: actions/checkout@v3
+        with:
+          ref: 'website'
+      - name: Change the README
+        run: |
+          pwd -P
+          rm -rf READMD.md
+          cp ../../README.md .
       - name: Setup pages
         uses: actions/configure-pages@v1
       - name: Build with Jekyll
