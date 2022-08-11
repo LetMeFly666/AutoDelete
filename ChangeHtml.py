@@ -2,13 +2,14 @@
 Author: LetMeFly
 Date: 2022-08-11 12:13:08
 LastEditors: LetMeFly
-LastEditTime: 2022-08-11 16:37:35
+LastEditTime: 2022-08-11 16:40:02
 '''
 from bs4 import BeautifulSoup
 
 def change1html(path):
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
+        f.close()
     soup = BeautifulSoup(content, "lxml")
     head = soup.find("head")
     scriptTag = soup.new_tag(name="script")
