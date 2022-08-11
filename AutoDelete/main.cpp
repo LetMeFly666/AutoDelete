@@ -2,14 +2,17 @@
  * @Author: LetMeFly
  * @Date: 2022-08-11 21:29:48
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-08-11 21:32:38
+ * @LastEditTime: 2022-08-11 21:48:27
  */
-#include <iostream>
-#include <Windows.h>
+#include "AutoDelete.h"
 
-using namespace std;
+int f(string s = "55", int t = 9, char c = '0') {
+    cout << s << endl;
+    cout << t << endl;
+    cout << c << endl;
+}
 
 int main() {
-    cout << "Hello World!" << endl;
+    AutoDelete autoDelete();
     return 0;
 }
