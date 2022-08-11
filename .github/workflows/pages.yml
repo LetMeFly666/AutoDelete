@@ -38,7 +38,8 @@ jobs:
           ref: 'website'
       - name: Change the readme -step1
         run: |
-          tree ../..
+          tree ..
+          pwd -P
           cd ../..
           mkdir masterDir
           cd masterDir
