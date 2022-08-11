@@ -33,6 +33,11 @@ jobs:
           ref: 'website'
       - name: Setup pages
         uses: actions/configure-pages@v1
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
       - name: 'Set up Python'
         uses: actions/setup-python@v1
         with:
@@ -49,11 +54,6 @@ jobs:
       - name: Change HTMLs
         run: |
           python ChangeHtml.py
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
