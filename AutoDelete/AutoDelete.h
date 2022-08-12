@@ -13,16 +13,16 @@ using namespace std;
 	LPCWSTRS = A2CW(W2A(CStringTempS));\
 	CStringTempS.ReleaseBuffer();\
 
-class AutoDelete {  // Ò»Ö±ÔËĞĞ£¬´ıÉ¾³ıÎÄ¼ş±£´æÔÚtempFilePath£¬Ã¿¸ôintervalTimeÃëÖ´ĞĞÒ»´ÎÉ¾³ı²Ù×÷
+class AutoDelete {  // ä¸€ç›´è¿è¡Œï¼Œå¾…åˆ é™¤æ–‡ä»¶ä¿å­˜åœ¨tempFilePathï¼Œæ¯éš”intervalTimeç§’æ‰§è¡Œä¸€æ¬¡åˆ é™¤æ“ä½œ
 private:
 	string tempFilePath;
 	time_t intervalTime;
 
 	void defaultInit();
 
-	void run();  // Ò»Ö±ÔËĞĞ£¬Ã¿¸ôintervalTimeÊ±¼äÖ´ĞĞÒ»´Î
+	void run();  // ä¸€ç›´è¿è¡Œï¼Œæ¯éš”intervalTimeæ—¶é—´æ‰§è¡Œä¸€æ¬¡
 
-	void execute();  // ÕæÕıÖ´ĞĞº¯Êı£¬±»µ÷ÓÃºóÁ¢¼´Ö´ĞĞ
+	void execute();  // çœŸæ­£æ‰§è¡Œå‡½æ•°ï¼Œè¢«è°ƒç”¨åç«‹å³æ‰§è¡Œ
 
 public:
 	AutoDelete();
