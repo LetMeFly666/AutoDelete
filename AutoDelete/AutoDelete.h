@@ -5,6 +5,8 @@
 #include <atlstr.h>  // char -> LPCWSTR
 #include <functional>  // function<int(string&)>
 #include <fstream>
+#include <string>  // getline
+#include <vector>
 using namespace std;
 
 #define string2LPCWSTR(stringS, LPCWSTRS, CStringTempS) \
