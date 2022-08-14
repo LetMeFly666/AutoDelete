@@ -4,6 +4,8 @@ Automatically Delete files according to your settings By [LetMeFly](https://letm
 
 Project URL: [https://autodelete.letmefly.xyz/](https://autodelete.letmefly.xyz/)
 
+Download: [Click Me](#Download666)
+
 ## 程序说明
 
 ### 执行自动删除
@@ -30,3 +32,23 @@ Project URL: [https://autodelete.letmefly.xyz/](https://autodelete.letmefly.xyz/
 |yyyy-mm-dd|2022-08-14|2022年08月14日0时删除|
 
 注意，该程序中1年就是365天，1月就是30天。如果您在```7月7日```设置了```一个月后删除```，那么实际删除日期将会是```8月6日```而不是```8月7日```（7月有31天）
+
+## 下载
+
+<a id="Download666"></a>
+
++ .
+
+
+## TODO:
+
++ [ ] 设置命令行传参机制，支持多种运行方式：缓存位置、间隔运行时长、运行次数等。
++ [ ] 设置支持配置文件的读取，可以保持配置，以便日后使用时不传参而直接运行
++ [ ] 设置待删除文件转移机制，如：移动待删除文件到临时文件夹，并发送快捷方式至原文件处，快捷方式命名为“原文件名-xxx时删”
++ [ ] 添加图形化界面
+
+## Warn:
+
++ 尽量不要设置太久之后的时间，否则到时候可能忘了。比如：设置了“我的小H说1年后自动删”，但是过了半年后给这件事情忘了，又在原有基础上进行完善，辛辛苦苦写了半年。结果一年了，再次运行这个程序时，程序遵循你之前的设定，把这个文件删了，那就hh了。
++ 程序需要执行时才会删除文件。
++ 该删除程序具有一定的危险性，请谨慎使用。
