@@ -16,7 +16,8 @@ int main(int argc, char** argv) {
         SetDelete setDelete(argv[1], getTempFilePath(autoDelete));
     }
     else {
-        AutoDelete autoDelete(5);
+        // AutoDelete autoDelete(5);
+        AutoDelete autoDelete;
     }
     return 0;
 }
