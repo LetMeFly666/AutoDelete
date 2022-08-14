@@ -15,6 +15,8 @@ using namespace std;
 	LPCWSTRS = A2CW(W2A(CStringTempS));\
 	CStringTempS.ReleaseBuffer();\
 
+extern bool runOnce;
+
 class AutoDelete {  // 一直运行，待删除文件保存在tempFilePath，每隔intervalTime秒执行一次删除操作
 private:
 	string tempFilePath;
@@ -31,8 +33,10 @@ public:
 	AutoDelete(string tempFilePath);
 	AutoDelete(time_t intervalTime);
 	AutoDelete(string tempFilePath, time_t intervalTime);
+	friend string getTempFilePath(AutoDelete& ad);
 };
 
 class SetDelete {
-
+public:
+	SetDelete(string toDeleteFilePath, string tempfilePath);
 };

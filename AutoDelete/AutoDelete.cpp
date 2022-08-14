@@ -42,6 +42,8 @@ AutoDelete::AutoDelete(string tempFilePath, time_t intervalTime) {
 void AutoDelete::run() {
 	while (true) {
 		execute();
+		if (runOnce)
+			break;
 		Sleep(intervalTime * 1000);
 	}
 }
@@ -162,4 +164,93 @@ void AutoDelete::execute() {
 	}
 
 	cout << "End of the execution." << endl;
+}
+
+SetDelete::SetDelete(string toDeleteFilePath, string tempfilePath) {
+	while (true) {
+		string inputTime;
+		cout << "Please input the time: ";
+		cin >> inputTime;
+
+		function<bool(string, int, int)> allNum = [](string s, int l, int r) {  // if [l, r) in s is all Num
+			for (int i = l; i < r; i++)
+				if (!(s[i] >= '0' && s[i] <= '9'))
+					return false;
+			return true;
+		};
+
+		time_t toSetTime;
+		if (inputTime.size() == 10 && inputTime[4] == '-' && inputTime[7] == '-') {  // yyyy-mm-dd
+			if (!allNum(inputTime, 0, 4) || !allNum(inputTime, 5, 7) || !allNum(inputTime, 8, 10)) {
+				cout << "Found non-Num in should-Num place!" << endl;
+				cout << "You can try 2022-08-14. ";
+				continue;
+			}
+			tm tempTime;
+			tempTime.tm_year = (inputTime[0] - '0') * 1000 + (inputTime[1] - '0') * 100 + (inputTime[2] - '0') * 10 + (inputTime[3] - '0') - 1900;
+			tempTime.tm_mon = (inputTime[5] - '0') * 10 + (inputTime[6] - '0') - 1;  // tm_monµÄ·¶Î§ÊÇ[0, 11]
+			tempTime.tm_mday = (inputTime[8] - '0') * 10 + (inputTime[9] - '0');
+			tempTime.tm_hour = 0;
+			tempTime.tm_min = 0;
+			tempTime.tm_sec = 0;
+			toSetTime = mktime(&tempTime);
+			cout << "toSetTime: " << toSetTime << endl;
+		}
+		else {
+			time_t timeNow = time(NULL);
+			if (inputTime[inputTime.size() - 1] != 'h' && inputTime[inputTime.size() - 1] != 'd' && inputTime[inputTime.size() - 1] != 'w' && inputTime[inputTime.size() - 1] != 'm' && inputTime[inputTime.size() - 1] != 'y') {
+				cout << "Error format!" << endl;
+				cout << "You can try 5d. ";
+				continue;
+			}
+			if (!allNum(inputTime, 0, inputTime.size() - 1)) {
+				cout << "Found non-Num in should-Num place!" << endl;
+				cout << "You can try 5d. ";
+				continue;
+			}
+			time_t k = 0;
+			for (int i = 0; i < inputTime.size() - 1; i++) {
+				time_t newK = k * 10 + inputTime[i] - '0';
+				if (newK < k) {
+					cout << "Time inputed is so long that an overflow is happened." << endl;
+					continue;
+				}
+				k = newK;
+			}
+			switch (inputTime.back()) {
+			case 'h':
+				k *= 3600;
+				break;
+			case 'd':
+				k *= 24 * 3600;
+				break;
+			case 'w':
+				k *= 7 * 24 * 3600;
+				break;
+			case 'm':
+				k *= 30 * 24 * 3600;
+				break;
+			case 'y':
+				k *= 365 * 24 * 3600;
+				break;
+			default:
+				break;
+			}
+			toSetTime = timeNow + k;
+		}
+
+		ofstream ostr(tempfilePath + "\\.LetMeFly\\todo.TFad", ios::app);
+		if (!ostr) {
+			cout << "Open file '" << tempfilePath + "\\.LetMeFly\\todo.TFad" << "' error!" << endl;
+			continue;
+		}
+		ostr << toDeleteFilePath << '?' << to_string(toSetTime) << endl;
+		ostr.close();
+
+		break;
+	}
+}
+
+string getTempFilePath(AutoDelete& ad) {
+	return ad.tempFilePath;
 }

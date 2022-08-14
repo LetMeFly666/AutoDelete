@@ -7,8 +7,16 @@
 #include "AutoDelete.h"
 //#pragma warning(disable : 4996)
 
+bool runOnce = false;
 
-int main() {
-    AutoDelete autoDelete(5);
+int main(int argc, char** argv) {
+    if (argc == 2) {
+        runOnce = true;
+        AutoDelete autoDelete;
+        SetDelete setDelete(argv[1], getTempFilePath(autoDelete));
+    }
+    else {
+        AutoDelete autoDelete(5);
+    }
     return 0;
 }
