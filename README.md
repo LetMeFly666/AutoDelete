@@ -2,7 +2,9 @@
 
 Automatically Delete files according to your settings By [LetMeFly](https://letmefly.xyz)
 
-Project URL: [https://autodelete.letmefly.xyz/](https://autodelete.letmefly.xyz/)
+Online page: [https://autodelete.letmefly.xyz/](https://autodelete.letmefly.xyz/)
+
+Project URL: [https://github.com/LetMeFly666/AutoDelete](https://github.com/LetMeFly666/AutoDelete)
 
 Download: [Click Me](#Download666)
 
