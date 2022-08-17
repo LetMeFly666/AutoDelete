@@ -10,6 +10,8 @@
 bool runOnce = false;
 
 int main(int argc, char** argv) {
+    debugArgs(argc, argv);
+
     if (argc == 2) {
         runOnce = true;
         AutoDelete autoDelete;

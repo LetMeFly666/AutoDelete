@@ -40,3 +40,5 @@ class SetDelete {
 public:
 	SetDelete(string toDeleteFilePath, string tempfilePath);
 };
+
+void debugArgs(int argc, char** argv);

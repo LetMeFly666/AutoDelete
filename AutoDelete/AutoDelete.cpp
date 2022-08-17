@@ -254,3 +254,13 @@ SetDelete::SetDelete(string toDeleteFilePath, string tempfilePath) {
 string getTempFilePath(AutoDelete& ad) {
 	return ad.tempFilePath;
 }
+
+void debugArgs(int argc, char** argv) {
+	printf("args: [");
+	for (int i = 0; i < argc; i++) {
+		if (i)
+			printf(", ");
+		cout << argv[i];
+	}
+	puts("]");
+}
