@@ -20,7 +20,7 @@ Download: [Click Me](#Download666)
 
 <small>首次使用时打开方式中没有“AutoDelete”，需要<kbd>右键 -> 打开方式 -> 更多应用 -> 在这台电脑上查找其他应用 -> 找到并选择AutoDelete.exe</kbd>。注意，如果系统默认勾选了“始终使用此应用打开xx文件”，最好手动取消勾选</small>
 
-<small>或者你也可以在<kbd>计算机\HKEY_CLASSES_ROOT\*\shell\</kbd>下新建<kbd>设置定时删除(AutoDelete)\command</kbd>，并把默认值设置为<kbd>程序路径 %1</kbd>（如<kbd>F:\LetMeFly\TFpath\AutoDelete.exe %1</kbd>）。这样，在某个文件上，就可以直接```右键 -> 设置定时删除```</small>
+<small>或者你也可以在<kbd>计算机\HKEY_CLASSES_ROOT\*\shell\</kbd>下新建<kbd>设置定时删除(AutoDelete)\command</kbd>，并把默认值设置为<kbd>程序路径 %1</kbd>（如<kbd>F:\LetMeFly\TFpath\AutoDelete.exe "%1"</kbd>）。这样，在某个文件上，就可以直接```右键 -> 设置定时删除```</small>
 
 然后输入你想要自动删除的时间即可。
 
