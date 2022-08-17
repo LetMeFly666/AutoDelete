@@ -133,7 +133,7 @@ void AutoDelete::execute() {
 		}
 		if (realTimeStamp < time(NULL)) {
 			cout << "Delete file '" << filePath << "' " << endl;
-			string cmd = "del " + filePath;
+			string cmd = "del \"" + filePath + "\"";
 			system(cmd.c_str());
 			toAlready.push_back(line);
 		}
